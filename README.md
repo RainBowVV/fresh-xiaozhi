@@ -50,19 +50,19 @@ npm install
 
 数据概览
 
-<img src="./images/数据概览.png" width="500" />
+<img src="./images/数据概览.png" />
 
 分类管理
 
-<img src="./images/分类管理.png" width="500" />
+<img src="./images/分类管理.png" />
 
 商品管理
 
-<img src="./images/商品管理.png" width="500" />
+<img src="./images/商品管理.png" />
 
 订单管理
 
-<img src="./images/订单管理.png" width="500" />
+<img src="./images/订单管理.png" />
 
 
 > 有任何问题，可联系本人QQ邮箱：942602922@qq.com
