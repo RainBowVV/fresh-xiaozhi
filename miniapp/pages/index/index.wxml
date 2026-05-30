@@ -1,0 +1,101 @@
+<!-- 首页 - 商品分类浏览 -->
+<view class="page">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar">
+    <view class="search-inner">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索新鲜好物..." placeholder-class="search-placeholder" bindinput="onSearchInput" value="{{searchText}}" />
+    </view>
+  </view>
+
+  <!-- 轮播图区域 -->
+  <view class="banner-section" wx:if="{{!searchText}}">
+    <swiper class="banner-swiper" indicator-dots indicator-color="rgba(255,255,255,0.4)" indicator-active-color="#fff" autoplay circular interval="4000">
+      <swiper-item>
+        <view class="banner-item banner-1">
+          <view class="banner-content">
+            <text class="banner-tag">时令鲜蔬</text>
+            <text class="banner-title">新鲜直达</text>
+            <text class="banner-desc">当日采摘 当日配送</text>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="banner-item banner-2">
+          <view class="banner-content">
+            <text class="banner-tag">品质水果</text>
+            <text class="banner-title">产地直供</text>
+            <text class="banner-desc">精选好果 甜蜜到家</text>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="banner-item banner-3">
+          <view class="banner-content">
+            <text class="banner-tag">新人专享</text>
+            <text class="banner-title">首单立减</text>
+            <text class="banner-desc">注册即享优惠福利</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 分类+商品区域 -->
+  <view class="main-area">
+    <!-- 左侧分类栏 -->
+    <scroll-view class="category-sidebar" scroll-y enhanced show-scrollbar="{{false}}">
+      <view class="category-item {{currentCategoryIndex === index ? 'active' : ''}}"
+            wx:for="{{categories}}" wx:key="id"
+            bindtap="onCategoryTap" data-index="{{index}}">
+        <view class="category-indicator"></view>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧商品列表 -->
+    <scroll-view class="product-area" scroll-y enhanced show-scrollbar="{{false}}" scroll-top="{{scrollTop}}" bindscrolltolower="onProductScrollLower">
+      <!-- 分类标题 -->
+      <view class="section-header" wx:if="{{!searchText}}">
+        <text class="section-title">{{currentCategory.name || '全部商品'}}</text>
+        <text class="section-count">共{{filteredProducts.length}}件商品</text>
+      </view>
+
+      <!-- 搜索结果提示 -->
+      <view class="search-result-tip" wx:if="{{searchText}}">
+        <text>搜索"{{searchText}}"的结果</text>
+        <text class="result-count">{{filteredProducts.length}}件商品</text>
+      </view>
+
+      <!-- 商品列表 -->
+      <view class="product-list">
+        <view class="product-card" wx:for="{{filteredProducts}}" wx:key="id" bindtap="goProductDetail" data-id="{{item.id}}">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill" lazy-load></image>
+          <view class="product-info">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-desc" wx:if="{{item.description}}">{{item.description}}</text>
+            <view class="product-bottom">
+              <view class="price">
+                <text class="symbol">¥</text>
+                <text class="amount">{{item.price}}</text>
+                <text class="unit">/{{item.unit}}</text>
+              </view>
+              <view class="add-btn" catchtap="onQuickAdd" data-id="{{item.id}}">
+                <text class="add-icon">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{filteredProducts.length === 0}}">
+        <text class="icon">🥬</text>
+        <text class="text">{{searchText ? '未找到相关商品' : '暂无商品'}}</text>
+      </view>
+
+      <!-- 底部间距 -->
+      <view style="height: 40rpx;"></view>
+    </scroll-view>
+  </view>
+</view>

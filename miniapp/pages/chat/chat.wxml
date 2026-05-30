@@ -1,0 +1,45 @@
+<view class="chat-page">
+  <scroll-view class="msg-list" scroll-y scroll-into-view="{{scrollToId}}" scroll-with-animation>
+    <!-- 欢迎 -->
+    <view class="msg-item bot">
+      <view class="avatar bot-avatar">🤖</view>
+      <view class="bubble bot-bubble">
+        <text>你好！我是鲜小智 AI 客服，有什么可以帮你的？</text>
+      </view>
+    </view>
+
+    <block wx:for="{{messages}}" wx:key="id">
+      <!-- 用户消息 -->
+      <view class="msg-item user" wx:if="{{item.role === 'user'}}">
+        <view class="bubble user-bubble">
+          <text>{{item.content}}</text>
+        </view>
+        <image class="avatar user-avatar" src="{{userAvatar}}" mode="aspectFill"></image>
+      </view>
+
+      <!-- AI 消息 -->
+      <view class="msg-item bot" wx:if="{{item.role === 'bot'}}">
+        <view class="avatar bot-avatar">🤖</view>
+        <view class="bot-wrap">
+          <view class="bubble bot-bubble">
+            <view wx:if="{{item.thinking}}" class="thinking">
+              <text class="thinking-text">思考中</text>
+              <view class="dots"><view class="dot"></view><view class="dot"></view><view class="dot"></view></view>
+            </view>
+            <rich-text wx:else nodes="{{item.htmlContent || item.content}}"></rich-text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view id="msg-bottom" style="height:1rpx;"></view>
+  </scroll-view>
+
+  <!-- 输入 -->
+  <view class="input-bar">
+    <textarea class="input-box" value="{{inputValue}}" bindinput="onInput" placeholder="输入你的问题..." auto-height maxlength="500" />
+    <view class="send-btn {{hasInput && !sending ? '' : 'disabled'}}" bindtap="sendMessage">
+      <text>发送</text>
+    </view>
+  </view>
+</view>

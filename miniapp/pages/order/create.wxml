@@ -1,0 +1,79 @@
+<!-- 确认订单页 -->
+<view class="page">
+  <!-- 收货地址 -->
+  <view class="address-card" bindtap="selectAddress">
+    <view wx:if="{{address}}">
+      <view class="address-top">
+        <text class="address-name">{{address.name}}</text>
+        <text class="address-phone">{{address.phone}}</text>
+        <view class="default-tag" wx:if="{{address.isDefault === 1}}">默认</view>
+      </view>
+      <text class="address-detail">{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</text>
+    </view>
+    <view wx:else class="no-address">
+      <text class="no-address-icon">📍</text>
+      <text class="no-address-text">请选择收货地址</text>
+    </view>
+    <text class="arrow-icon">></text>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="order-items-card">
+    <view class="card-title">
+      <text class="card-title-icon">🛒</text>
+      <text>商品清单</text>
+    </view>
+    <view class="order-item" wx:for="{{orderItems}}" wx:key="productId">
+      <image class="item-image" src="{{item.productImage}}" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-name">{{item.productName}}</text>
+        <view class="item-bottom">
+          <view class="price price-sm">
+            <text class="symbol">¥</text>
+            <text class="amount">{{item.price}}</text>
+          </view>
+          <text class="item-qty">x{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="remark-card">
+    <text class="remark-label">订单备注</text>
+    <input class="remark-input" placeholder="选填，请先和商家协商" placeholder-class="remark-placeholder" value="{{remark}}" bindinput="onRemarkInput" />
+  </view>
+
+  <!-- 费用明细 -->
+  <view class="fee-card">
+    <view class="fee-row">
+      <text class="fee-label">商品金额</text>
+      <text class="fee-value">¥{{totalAmount}}</text>
+    </view>
+    <view class="fee-row">
+      <text class="fee-label">配送费</text>
+      <text class="fee-value free">免配送费</text>
+    </view>
+    <view class="fee-row total-row">
+      <text class="fee-label">合计</text>
+      <view class="price">
+        <text class="symbol">¥</text>
+        <text class="amount">{{totalAmount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部提交栏 -->
+  <view class="submit-bar safe-bottom">
+    <view class="submit-total">
+      <text class="submit-total-label">实付：</text>
+      <view class="price">
+        <text class="symbol">¥</text>
+        <text class="amount">{{totalAmount}}</text>
+      </view>
+    </view>
+    <view class="submit-btn" bindtap="submitOrder">
+      <text>提交订单</text>
+    </view>
+  </view>
+</view>

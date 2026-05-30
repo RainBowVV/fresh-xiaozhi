@@ -1,0 +1,144 @@
+<!-- 我的页面 -->
+<view class="page">
+  <!-- 用户信息区 -->
+  <view class="user-section">
+    <view class="user-bg"></view>
+    <view class="user-card" wx:if="{{isLoggedIn}}">
+      <image class="user-avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <text class="user-name">{{userInfo.nickname || '微信用户'}}</text>
+        <text class="user-id">ID: {{userInfo.id}}</text>
+      </view>
+    </view>
+    <view class="user-card" wx:else bindtap="showLoginCard">
+      <view class="avatar-placeholder">
+        <text class="avatar-icon">👤</text>
+      </view>
+      <view class="user-info">
+        <text class="login-text">点击登录</text>
+        <text class="login-desc">登录后享受更多服务</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单快捷入口 -->
+  <view class="order-section">
+    <view class="section-header" bindtap="goOrderList">
+      <text class="section-title">我的订单</text>
+      <view class="section-more">
+        <text>查看全部</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+    <view class="order-shortcuts">
+      <view class="shortcut-item" bindtap="goOrderList" data-status="-1">
+        <view class="shortcut-icon-wrap all">
+          <text class="shortcut-icon">📋</text>
+        </view>
+        <text class="shortcut-text">全部订单</text>
+      </view>
+      <view class="shortcut-item" bindtap="goOrderList" data-status="0">
+        <view class="shortcut-icon-wrap pending">
+          <text class="shortcut-icon">⏰</text>
+        </view>
+        <text class="shortcut-text">待付款</text>
+      </view>
+      <view class="shortcut-item" bindtap="goOrderList" data-status="1">
+        <view class="shortcut-icon-wrap paid">
+          <text class="shortcut-icon">📦</text>
+        </view>
+        <text class="shortcut-text">待发货</text>
+      </view>
+      <view class="shortcut-item" bindtap="goOrderList" data-status="4">
+        <view class="shortcut-icon-wrap completed">
+          <text class="shortcut-icon">✅</text>
+        </view>
+        <text class="shortcut-text">已完成</text>
+      </view>
+      <view class="shortcut-item" bindtap="goOrderList" data-status="5">
+        <view class="shortcut-icon-wrap cancelled">
+          <text class="shortcut-icon">❌</text>
+        </view>
+        <text class="shortcut-text">已取消</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goAddress">
+      <view class="menu-icon-wrap green">
+        <text class="menu-icon">📍</text>
+      </view>
+      <text class="menu-text">收货地址</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="goCart">
+      <view class="menu-icon-wrap orange">
+        <text class="menu-icon">🛒</text>
+      </view>
+      <text class="menu-text">购物车</text>
+      <view class="menu-badge" wx:if="{{cartCount > 0}}">{{cartCount}}</view>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goChat">
+      <view class="menu-icon-wrap blue">
+        <text class="menu-icon">🤖</text>
+      </view>
+      <text class="menu-text">AI 智能助手</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="showAbout">
+      <view class="menu-icon-wrap purple">
+        <text class="menu-icon">ℹ</text>
+      </view>
+      <text class="menu-text">关于鲜小智</text>
+      <text class="menu-value">v1.0.0</text>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section" wx:if="{{isLoggedIn}}">
+    <view class="logout-btn" bindtap="logout">
+      <text>退出登录</text>
+    </view>
+  </view>
+
+  <!-- 登录授权弹窗 -->
+  <view class="login-mask" wx:if="{{showLogin}}" bindtap="hideLoginCard"></view>
+  <view class="login-card" wx:if="{{showLogin}}">
+    <view class="login-card-header">
+      <text class="login-card-title">欢迎使用鲜小智</text>
+      <text class="login-card-subtitle">请授权您的头像和昵称</text>
+    </view>
+    <view class="login-card-body">
+      <!-- 头像选择：微信推荐接口 -->
+      <view class="auth-row">
+        <text class="auth-label">头像</text>
+        <button class="auth-avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+          <image class="auth-avatar" wx:if="{{tempAvatar}}" src="{{tempAvatar}}" mode="aspectFill"></image>
+          <view class="auth-avatar-placeholder" wx:else>
+            <text class="auth-avatar-plus">+</text>
+            <text class="auth-avatar-hint">选择头像</text>
+          </view>
+        </button>
+      </view>
+      <view class="auth-divider"></view>
+      <!-- 昵称输入：微信推荐接口 -->
+      <view class="auth-row">
+        <text class="auth-label">昵称</text>
+        <input class="auth-nickname-input" type="nickname" placeholder="请输入昵称" value="{{tempNickname}}" bindinput="onNicknameInput" bindblur="onNicknameInput" />
+      </view>
+    </view>
+    <view class="login-card-footer">
+      <view class="login-confirm-btn {{canLogin ? '' : 'disabled'}}" bindtap="confirmLogin">
+        <text>授权登录</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${xiaozhi.datasource.host}:${xiaozhi.datasource.port}/${xiaozhi.datasource.database}?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: ${xiaozhi.datasource.username}
+    password: ${xiaozhi.datasource.password}
+  data:
+    redis:
+      host: ${xiaozhi.redis.host}
+      port: ${xiaozhi.redis.port}
+      database: ${xiaozhi.redis.database}
+      password: ${xiaozhi.redis.password}
+  ai:
+    openai:
+      api-key: ${xiaozhi.ai.openai.api-key}
+      base-url: ${xiaozhi.ai.openai.base-url}
+      chat:
+        options:
+          model: ${xiaozhi.ai.openai.chat.options.model}
+          temperature: ${xiaozhi.ai.openai.chat.options.temperature}
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: debug
+
+xiaozhi:
+  jwt:
+    secret: xiaozhi-fresh-jwt-secret-key-must-be-long-enough-256bits
+    expiration: 604800000
+  alioss:
+    endpoint: ${xiaozhi.alioss.endpoint}
+    access-key-id: ${xiaozhi.alioss.access-key-id}
+    access-key-secret: ${xiaozhi.alioss.access-key-secret}
+    bucket-name: ${xiaozhi.alioss.bucket-name}
+    url-prefix: ${xiaozhi.alioss.url-prefix}
+  wechat:
+    appid: ${xiaozhi.wechat.appid}
+    secret: ${xiaozhi.wechat.secret}

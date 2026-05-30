@@ -1,0 +1,97 @@
+/* 地址编辑页样式 */
+.page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  padding-bottom: 200rpx;
+}
+
+.form {
+  margin: 20rpx 24rpx;
+}
+
+.form-group {
+  background: #fff;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+  box-shadow: var(--shadow);
+}
+
+.form-label {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+  display: block;
+  font-weight: 500;
+}
+
+.form-input {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  padding: 8rpx 0;
+  width: 100%;
+}
+
+.form-input.placeholder {
+  color: #ccc;
+}
+
+.form-textarea {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  padding: 8rpx 0;
+  width: 100%;
+  min-height: 80rpx;
+}
+
+.picker-input {
+  min-height: 48rpx;
+  display: flex;
+  align-items: center;
+}
+
+.switch-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch-group .form-label {
+  margin-bottom: 0;
+}
+
+/* 保存按钮栏 */
+.save-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 24rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 22rpx 0;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 16rpx rgba(45, 106, 79, 0.3);
+}
+
+.save-btn:active {
+  transform: scale(0.97);
+}
+
+.delete-btn {
+  text-align: center;
+  padding: 18rpx 0;
+  font-size: 26rpx;
+  color: #e74c3c;
+}

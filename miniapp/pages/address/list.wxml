@@ -1,0 +1,54 @@
+<!-- 地址列表页 -->
+<view class="page">
+  <scroll-view class="address-list" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="address-card {{selectMode ? 'select-mode' : ''}} {{item.isDefault === 1 ? 'default' : ''}}" wx:for="{{addresses}}" wx:key="id">
+      <!-- 选择模式 -->
+      <view class="select-area" wx:if="{{selectMode}}" bindtap="selectAddress" data-index="{{index}}">
+        <view class="select-icon">✓</view>
+      </view>
+
+      <!-- 地址信息 -->
+      <view class="address-content" bindtap="{{selectMode ? 'selectAddress' : 'editAddress'}}" data-index="{{index}}">
+        <view class="address-top">
+          <text class="address-name">{{item.name}}</text>
+          <text class="address-phone">{{item.phone}}</text>
+          <view class="default-tag" wx:if="{{item.isDefault === 1}}">默认</view>
+        </view>
+        <text class="address-detail">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="address-actions" wx:if="{{!selectMode}}">
+        <view class="action-item" bindtap="setDefault" data-id="{{item.id}}" wx:if="{{item.isDefault !== 1}}">
+          <text class="action-icon">☆</text>
+          <text>设为默认</text>
+        </view>
+        <view class="action-item" bindtap="editAddress" data-index="{{index}}">
+          <text class="action-icon">✎</text>
+          <text>编辑</text>
+        </view>
+        <view class="action-item delete" bindtap="deleteAddress" data-id="{{item.id}}">
+          <text class="action-icon">🗑</text>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{addresses.length === 0}}">
+      <text class="icon">📍</text>
+      <text class="text">暂无收货地址</text>
+      <text class="sub-text">添加地址后即可下单</text>
+    </view>
+
+    <view style="height: 120rpx;"></view>
+  </scroll-view>
+
+  <!-- 添加按钮 -->
+  <view class="add-bar safe-bottom">
+    <view class="add-btn" bindtap="addAddress">
+      <text class="add-icon">+</text>
+      <text>新增收货地址</text>
+    </view>
+  </view>
+</view>

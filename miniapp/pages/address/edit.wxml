@@ -1,0 +1,48 @@
+<!-- 地址编辑页 -->
+<view class="page">
+  <view class="form">
+    <!-- 联系人 -->
+    <view class="form-group">
+      <text class="form-label">联系人</text>
+      <input class="form-input" placeholder="请输入收货人姓名" value="{{form.name}}" bindinput="onInput" data-field="name" />
+    </view>
+
+    <!-- 手机号 -->
+    <view class="form-group">
+      <text class="form-label">手机号</text>
+      <input class="form-input" type="number" maxlength="11" placeholder="请输入手机号" value="{{form.phone}}" bindinput="onInput" data-field="phone" />
+    </view>
+
+    <!-- 所在地区 -->
+    <view class="form-group">
+      <text class="form-label">所在地区</text>
+      <picker mode="region" value="{{region}}" bindchange="onRegionChange">
+        <view class="form-input picker-input {{region[0] ? '' : 'placeholder'}}">
+          {{region[0] ? region[0] + ' ' + region[1] + ' ' + region[2] : '请选择省市区'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 详细地址 -->
+    <view class="form-group">
+      <text class="form-label">详细地址</text>
+      <textarea class="form-textarea" placeholder="请输入详细地址，如街道、楼栋、门牌号" value="{{form.detail}}" bindinput="onInput" data-field="detail" auto-height maxlength="200" />
+    </view>
+
+    <!-- 设为默认 -->
+    <view class="form-group switch-group">
+      <text class="form-label">设为默认地址</text>
+      <switch checked="{{form.isDefault === 1}}" color="#2d6a4f" bindchange="onDefaultChange" />
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="save-bar safe-bottom">
+    <view class="save-btn" bindtap="saveAddress">
+      <text>保存地址</text>
+    </view>
+    <view class="delete-btn" wx:if="{{isEdit}}" bindtap="deleteAddress">
+      <text>删除地址</text>
+    </view>
+  </view>
+</view>

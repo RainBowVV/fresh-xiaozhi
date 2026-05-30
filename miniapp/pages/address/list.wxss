@@ -1,0 +1,154 @@
+/* 地址列表页样式 */
+.page {
+  min-height: 100vh;
+  background: var(--bg-page);
+  position: relative;
+}
+
+.address-list {
+  height: 100vh;
+  padding: 20rpx 0;
+}
+
+.address-card {
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+/* 地址卡片 */
+.address-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.address-card.default {
+  border-left: 6rpx solid var(--green);
+}
+
+.address-card.select-mode {
+  display: flex;
+  align-items: center;
+}
+
+.select-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.select-icon {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  font-size: 24rpx;
+}
+
+.address-content {
+  flex: 1;
+}
+
+.address-top {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 10rpx;
+}
+
+.address-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.address-phone {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.default-tag {
+  font-size: 20rpx;
+  color: var(--green);
+  background: var(--green-pale);
+  padding: 2rpx 12rpx;
+  border-radius: 8rpx;
+  font-weight: 500;
+}
+
+.address-detail {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 操作按钮 */
+.address-actions {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 20rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  padding: 8rpx 0;
+}
+
+.action-item.delete {
+  color: #e74c3c;
+}
+
+.action-icon {
+  font-size: 28rpx;
+}
+
+/* 添加按钮栏 */
+.add-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 24rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: #fff;
+  padding: 22rpx 0;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 16rpx rgba(45, 106, 79, 0.3);
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+.add-icon {
+  font-size: 36rpx;
+  font-weight: 300;
+}

@@ -1,0 +1,412 @@
+/* 我的页面样式 */
+.page {
+  min-height: 100vh;
+  background: var(--bg-page);
+}
+
+/* 用户信息区 */
+.user-section {
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.user-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 320rpx;
+  background: linear-gradient(160deg, #2d6a4f 0%, #40916c 40%, #52b788 100%);
+  border-radius: 0 0 40rpx 40rpx;
+}
+
+.user-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 60rpx 32rpx 40rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+
+.avatar-placeholder {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-icon {
+  font-size: 56rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+  flex: 1;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+.user-id {
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.7);
+}
+
+.login-text {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+.login-desc {
+  font-size: 22rpx;
+  color: rgba(255,255,255,0.6);
+}
+
+/* 订单快捷入口 */
+.order-section {
+  background: #fff;
+  margin: 0 24rpx 20rpx;
+  border-radius: 16rpx;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 24rpx 0;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-more {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  font-size: 24rpx;
+  color: var(--text-light);
+}
+
+.arrow {
+  font-size: 24rpx;
+}
+
+.order-shortcuts {
+  display: flex;
+  padding: 24rpx 0 28rpx;
+}
+
+.shortcut-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.shortcut-icon-wrap {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shortcut-icon-wrap.pending {
+  background: #fff3e0;
+}
+
+.shortcut-icon-wrap.paid {
+  background: var(--green-pale);
+}
+
+.shortcut-icon-wrap.delivering {
+  background: #e3f2fd;
+}
+
+.shortcut-icon-wrap.completed {
+  background: #f5f5f5;
+}
+
+.shortcut-icon-wrap.all {
+  background: #ede7f6;
+}
+
+.shortcut-icon-wrap.cancelled {
+  background: #fce4ec;
+}
+
+.shortcut-icon {
+  font-size: 36rpx;
+}
+
+.shortcut-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* 功能菜单 */
+.menu-section {
+  background: #fff;
+  margin: 0 24rpx 20rpx;
+  border-radius: 16rpx;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  gap: 16rpx;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon-wrap {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon-wrap.green {
+  background: var(--green-pale);
+}
+
+.menu-icon-wrap.orange {
+  background: #fff3e0;
+}
+
+.menu-icon-wrap.purple {
+  background: #f3e5f5;
+}
+
+.menu-icon-wrap.blue {
+  background: #e3f2fd;
+}
+
+
+.menu-icon {
+  font-size: 32rpx;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.menu-value {
+  font-size: 24rpx;
+  color: var(--text-light);
+  margin-right: 8rpx;
+}
+
+.menu-arrow {
+  font-size: 24rpx;
+  color: var(--text-light);
+}
+
+.menu-badge {
+  background: var(--orange);
+  color: #fff;
+  font-size: 20rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 32rpx;
+  padding: 0 8rpx;
+  margin-right: 8rpx;
+}
+
+/* 退出登录 */
+.logout-section {
+  padding: 40rpx 24rpx;
+}
+
+.logout-btn {
+  text-align: center;
+  padding: 22rpx 0;
+  border: 1rpx solid #e74c3c;
+  border-radius: 48rpx;
+  color: #e74c3c;
+  font-size: 28rpx;
+}
+
+.logout-btn:active {
+  background: #fdf0ef;
+}
+
+/* 登录授权弹窗 */
+.login-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+}
+
+.login-card {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  z-index: 201;
+  overflow: hidden;
+}
+
+.login-card-header {
+  padding: 48rpx 40rpx 24rpx;
+  text-align: center;
+  background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+}
+
+.login-card-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8rpx;
+}
+
+.login-card-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.8);
+}
+
+.login-card-body {
+  padding: 32rpx 40rpx;
+}
+
+.auth-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 20rpx 0;
+}
+
+.auth-label {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+  width: 80rpx;
+}
+
+.auth-avatar-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.auth-avatar-btn::after {
+  display: none;
+}
+
+.auth-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.auth-avatar-placeholder {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #f5f5f5;
+  border: 2rpx dashed #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+}
+
+.auth-avatar-plus {
+  font-size: 40rpx;
+  color: var(--green);
+  line-height: 1;
+}
+
+.auth-avatar-hint {
+  font-size: 18rpx;
+  color: var(--text-light);
+}
+
+.auth-divider {
+  height: 1rpx;
+  background: var(--border);
+  margin: 0 0;
+}
+
+.auth-nickname-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  padding: 8rpx 0;
+}
+
+.login-card-footer {
+  padding: 16rpx 40rpx 40rpx;
+}
+
+.login-confirm-btn {
+  background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+  color: #fff;
+  text-align: center;
+  padding: 22rpx 0;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 16rpx rgba(45,106,79,0.3);
+}
+
+.login-confirm-btn.disabled {
+  opacity: 0.5;
+}
+
+.login-confirm-btn:active {
+  transform: scale(0.97);
+}

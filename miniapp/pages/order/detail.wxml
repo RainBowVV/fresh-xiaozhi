@@ -1,0 +1,114 @@
+<!-- 订单详情页 -->
+<view class="page">
+  <!-- 状态栏 -->
+  <view class="status-bar status-bg-{{order.status}}">
+    <view class="status-row">
+      <text class="status-text">{{statusMap[order.status]}}</text>
+      <text class="status-desc" wx:if="{{order.status === 0 && countdown}}">⏳ 剩余 {{countdown}} 请尽快支付</text>
+      <text class="status-desc" wx:elif="{{order.status === 1}}">商家正在备货中</text>
+      <text class="status-desc" wx:elif="{{order.status === 3}}">骑手正在配送中</text>
+      <text class="status-desc" wx:elif="{{order.status === 4}}">感谢您的购买</text>
+    </view>
+  </view>
+
+  <!-- 收货地址 -->
+  <view class="section-card" wx:if="{{order.address}}">
+    <view class="section-title">
+      <text class="section-icon">📍</text>
+      <text>收货信息</text>
+    </view>
+    <view class="address-info">
+      <view class="address-top">
+        <text class="address-name">{{order.address.name}}</text>
+        <text class="address-phone">{{order.address.phone}}</text>
+      </view>
+      <text class="address-detail">{{order.address.province}}{{order.address.city}}{{order.address.district}}{{order.address.detail}}</text>
+    </view>
+  </view>
+
+  <!-- 商品清单 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="section-icon">🛒</text>
+      <text>商品清单</text>
+    </view>
+    <view class="order-item" wx:for="{{order.items}}" wx:key="id">
+      <image class="item-image" src="{{item.productImage}}" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-name">{{item.productName}}</text>
+        <view class="item-bottom">
+          <view class="price price-sm">
+            <text class="symbol">¥</text>
+            <text class="amount">{{item.price}}</text>
+          </view>
+          <text class="item-qty">x{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="section-icon">📋</text>
+      <text>订单信息</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">订单编号</text>
+      <text class="info-value">{{order.orderNo}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">下单时间</text>
+      <text class="info-value">{{order.createTime}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.payTime}}">
+      <text class="info-label">支付时间</text>
+      <text class="info-value">{{order.payTime}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.remark}}">
+      <text class="info-label">订单备注</text>
+      <text class="info-value">{{order.remark}}</text>
+    </view>
+  </view>
+
+  <!-- 费用明细 -->
+  <view class="section-card">
+    <view class="section-title">
+      <text class="section-icon">💰</text>
+      <text>费用明细</text>
+    </view>
+    <view class="fee-row">
+      <text class="fee-label">商品金额</text>
+      <text class="fee-value">¥{{order.totalAmount}}</text>
+    </view>
+    <view class="fee-row">
+      <text class="fee-label">配送费</text>
+      <text class="fee-value free">免配送费</text>
+    </view>
+    <view class="fee-row total-row">
+      <text class="fee-label">实付金额</text>
+      <view class="price">
+        <text class="symbol">¥</text>
+        <text class="amount">{{order.totalAmount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar safe-bottom" wx:if="{{order.status === 0 || order.status === 4 || order.status === 5}}">
+    <view class="bottom-actions">
+      <view class="action-btn" wx:if="{{order.status === 0}}" bindtap="cancelOrder">
+        <text>取消订单</text>
+      </view>
+      <view class="action-btn primary" wx:if="{{order.status === 0}}" bindtap="payOrder">
+        <text>立即支付</text>
+      </view>
+      <view class="action-btn" wx:if="{{order.status === 4 || order.status === 5}}" bindtap="deleteOrder">
+        <text>删除订单</text>
+      </view>
+      <view class="action-btn primary" wx:if="{{order.status === 4}}" bindtap="reorder">
+        <text>再来一单</text>
+      </view>
+    </view>
+  </view>
+</view>

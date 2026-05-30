@@ -1,0 +1,176 @@
+/* 购物车页面样式 */
+.page {
+  height: 100vh;
+  background: var(--bg-page);
+}
+
+/* 顶部操作栏 */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.cart-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.clear-btn {
+  font-size: 24rpx;
+  color: var(--text-light);
+  padding: 8rpx 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 24rpx;
+}
+
+/* 复选框 */
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 3rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #fff;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.checkbox.checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* 购物车列表 */
+.cart-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-list {
+  flex: 1;
+  min-height: 0;
+  padding: 20rpx 0 0;
+}
+
+.cart-item {
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  gap: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+
+.item-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160rpx;
+  min-width: 0;
+}
+
+.item-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.delete-btn {
+  color: var(--text-light);
+  font-size: 28rpx;
+  padding: 12rpx;
+  flex-shrink: 0;
+}
+
+/* 底部结算栏 - 固定在底部 */
+.checkout-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
+  z-index: 100;
+}
+
+.checkout-left {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.select-info {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.total-info {
+  display: flex;
+  align-items: center;
+}
+
+.total-label {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.checkout-btn {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 18rpx 48rpx;
+  border-radius: 48rpx;
+  transition: all 0.2s;
+}
+
+.checkout-btn.disabled {
+  opacity: 0.5;
+}
+
+.checkout-btn:active {
+  transform: scale(0.97);
+}

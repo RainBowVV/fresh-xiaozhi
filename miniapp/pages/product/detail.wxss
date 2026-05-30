@@ -1,0 +1,283 @@
+/* 商品详情页样式 */
+.page {
+  padding-bottom: 140rpx;
+  background: var(--bg-page);
+}
+
+/* 商品图片 */
+.image-section {
+  position: relative;
+  width: 100%;
+  height: 750rpx;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-indicator {
+  position: absolute;
+  bottom: 24rpx;
+  right: 24rpx;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+/* 商品信息 */
+.info-section {
+  background: #fff;
+  padding: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.sales-tag {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  color: var(--orange);
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.product-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.product-desc {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: block;
+}
+
+/* 商品详情区 */
+.detail-section {
+  background: #fff;
+  padding: 28rpx;
+}
+
+.section-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 28rpx;
+}
+
+.title-line {
+  flex: 1;
+  height: 1rpx;
+  background: var(--border);
+}
+
+.title-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.detail-info {
+  background: var(--green-bg);
+  border-radius: 12rpx;
+  padding: 8rpx 0;
+}
+
+.info-row {
+  display: flex;
+  padding: 18rpx 24rpx;
+  border-bottom: 1rpx solid rgba(45,106,79,0.08);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  width: 160rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--text-primary);
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 16rpx 24rpx;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
+  z-index: 100;
+}
+
+.bottom-left {
+  display: flex;
+  gap: 32rpx;
+  margin-right: 24rpx;
+}
+
+.icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rpx;
+  position: relative;
+}
+
+.icon-btn-icon {
+  font-size: 40rpx;
+}
+
+.icon-btn-text {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8rpx;
+  right: -16rpx;
+  background: var(--orange);
+  color: #fff;
+  font-size: 18rpx;
+  min-width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  border-radius: 28rpx;
+  padding: 0 6rpx;
+}
+
+.bottom-right {
+  flex: 1;
+  display: flex;
+  gap: 0;
+}
+
+.btn-add-cart,
+.btn-buy-now {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn-add-cart {
+  background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+  border-radius: 48rpx 0 0 48rpx;
+}
+
+.btn-buy-now {
+  background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+  border-radius: 0 48rpx 48rpx 0;
+}
+
+/* 数量选择弹窗 */
+.qty-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+}
+
+.qty-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 32rpx;
+  z-index: 201;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.qty-modal.show {
+  transform: translateY(0);
+}
+
+.qty-modal-header {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+}
+
+.qty-modal-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+}
+
+.qty-modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.qty-modal-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.qty-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 32rpx;
+  color: var(--text-light);
+  padding: 8rpx;
+}
+
+.qty-modal-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-top: 1rpx solid var(--border);
+  border-bottom: 1rpx solid var(--border);
+}
+
+.qty-label {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.qty-modal-footer {
+  padding-top: 32rpx;
+}
