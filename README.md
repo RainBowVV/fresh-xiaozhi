@@ -21,7 +21,7 @@
 
 ### 🚀 快速启动
 1. 工具下载：下载 git 和 node.js
-2. 克隆代码：`git clone https://github.com/RainBowVV/fresh-xiaozhi`
+2. 克隆代码：`git clone https://github.com/RainBowVV/fresh-xiaozhi.git`
 3. 完善 application.yml 资源配置
 4. 下载依赖
 ```bash
