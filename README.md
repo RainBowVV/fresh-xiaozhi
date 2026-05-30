@@ -36,7 +36,7 @@ npm install
 
 首页 :arrow_right: 商品详情 :arrow_right: 购物车
 
-<img src="./images/首页.png" width="260" /> <img src="./images/商品详情.png" width="260" /> <img src="./images/购物车.png" width="260" />
+<img src="./images/首页.png" width="270" /> <img src="./images/商品详情.png" width="270" /> <img src="./images/购物车.png" width="270" />
 
 登录 :arrow_right: 我的 :arrow_right: AI智能客服
 
