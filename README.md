@@ -31,7 +31,10 @@ npm install
 ```
 5. 替换 project.config.json 中的 appid
 
-### 效果展示
+### 📸 项目展示
+鲜小智小程序：
+
+管理后台：
 
 
 
