@@ -36,15 +36,15 @@ npm install
 
 首页 :arrow_right: 商品详情 :arrow_right: 购物车
 
-<img src="./images/首页.png" width="280" /> <img src="./images/商品详情.png" width="280" /> <img src="./images/购物车.png" width="280" />
+<img src="./images/首页.png" width="270" /> <img src="./images/商品详情.png" width="270" /> <img src="./images/购物车.png" width="270" />
 
 登录 :arrow_right: 我的 :arrow_right: AI智能客服
 
-<img src="./images/登录.png" width="300" /> <img src="./images/我的.png" width="300" /> <img src="./images/AI智能客服.png" width="300" />
+<img src="./images/登录.png" width="270" /> <img src="./images/我的.png" width="270" /> <img src="./images/AI智能客服.png" width="270" />
 
 订单列表 :arrow_right: 订单详情 :arrow_right: 收货地址
 
-<img src="./images/订单列表.png" width="300" /> <img src="./images/订单详情.png" width="300" /> <img src="./images/收货地址.png" width="300" />
+<img src="./images/订单列表.png" width="270" /> <img src="./images/订单详情.png" width="270" /> <img src="./images/收货地址.png" width="270" />
 
 管理后台：
 
