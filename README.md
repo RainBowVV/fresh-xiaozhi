@@ -65,4 +65,4 @@ npm install
 <img src="./images/订单管理.png" />
 
 
-> 有任何问题，可联系本人QQ邮箱：942602922@qq.com
+> 学习交流，可联系本人QQ邮箱：942602922@qq.com
