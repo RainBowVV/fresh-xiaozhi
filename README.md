@@ -1,11 +1,20 @@
 # 鲜小智生鲜买菜系统
 
-> 一个基于 SpringBoot + 微信小程序原生 + Vue 管理后台 的生鲜购物超市。具体项目设计请看：需求分析.md
+> 一个基于 SpringBoot + 微信小程序原生 + Vue 管理后台 的生鲜购物超市。
+> 具体项目设计请看：需求分析.md
 
 ### ✨ 技术栈
 后端：
 - Java 17+
 - SpringBoot 3.4.5
+- MyBatis Plus 3.5.6
+- MySQL 8.x
+- Redis 6.x+
+- SpringAI 1.1.5
+- jjwt 0.12.5
+- OSS 3.17.4
+- Hutool 5.8.26
+- Lombok -
 
 
 小程序端：微信小程序原生（WXML + WXSS + JS）
@@ -20,7 +29,7 @@
 cd miniapp/
 npm install
 ```
-5. project.config.json 中的 appid 需要替换成自己的
+5. 替换 project.config.json 中的 appid
 
 ### 效果展示
 
