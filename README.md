@@ -4,21 +4,23 @@
 
 ### ✨ 技术栈
 后端：
+- Java 17+
+- SpringBoot 3.4.5
 
 
-- **核心框架**: Spring Boot 2.7.x / 3.x
-- **项目管理**: Maven / Gradle
-- **数据库**: MySQL 8.0 + MyBatis-Plus / Spring Data JPA
-- **缓存**: Redis (用于 token 存储/分布式锁)
-- **工具**: Lombok, Hutool, Swagger/Knife4j (API 文档)
+小程序端：微信小程序原生（WXML + WXSS + JS）
+管理端：Vue3 + Element Plus
 
 ### 🚀 快速启动
-
-### 前置要求
-- JDK 17+
-- Maven 3.6+
-- MySQL 8.0+
-- Redis (可选)
+1. 工具下载：下载 git 和 node.js
+2. 克隆代码：`git clone https://github.com/RainBowVV/fresh-xiaozhi`
+3. 完善 application.yml 资源配置
+4. 下载依赖
+```bash
+cd miniapp/
+npm install
+```
+5. project.config.json 中的 appid 需要替换成自己的
 
 ### 效果展示
 
